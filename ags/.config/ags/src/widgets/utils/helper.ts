@@ -11,3 +11,4 @@ export const WorkspaceBtn = (label: string, className: string, id: number) => Bu
 
 })
 
+export const formatSentence = (sen: string, len: number) => sen.slice(0, len)

@@ -1,4 +1,5 @@
 import { battery } from "src/widgets/battery"
+import { Media } from "src/widgets/Player"
 import { time } from "src/widgets/time"
 import { workspace } from "src/widgets/workspace"
 
@@ -18,12 +19,24 @@ const Bar = (monitor: number) => Widget.Window({
     endWidget: Box({
       hpack: 'end',
       children: [
-        battery
+        battery,
       ]
     })
   })
 })
 
+const Player = (monitor: number) => Widget.Window({
+  name: `player-${monitor}`,
+  anchor: ['top', 'left',],
+  exclusivity: 'ignore',
+  child: Media()
+})
+
+
+
+const css = App.configDir + "/src/styles/main.css"
+
 App.config({
-  windows: [Bar(0)]
+  style: css,
+  windows: [Bar(0), Player(0)]
 })

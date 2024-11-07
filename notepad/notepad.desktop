@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Notepad
+GenericName=Terminal emulator
+Comment=Open Neovim in Note Directory
+TryExec=kitty
+StartupNotify=true
+Exec=kitty -e sh -c 'cd ~/Notepad && nvim && :new'
+Icon=
+Categories=Utility;

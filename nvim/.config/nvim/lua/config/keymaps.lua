@@ -7,3 +7,4 @@ set("i", "jk", "<ESC>", { noremap = true, silent = true, desc = "<ESC>" })
 
 set("n", "<leader>w", "<cmd>w<cr>", { noremap = true, desc = "Save window" })
 set("n", "<leader>q", "<cmd>q<cr>", { noremap = true, desc = "Close window" })
+set("n", "<leader>sp", "<cmd>:SudaWrite<cr>", { noremap = true, desc = "Sudo Write" })

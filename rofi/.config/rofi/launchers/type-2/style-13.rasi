@@ -16,7 +16,7 @@ configuration {
 }
 
 /*****----- Global Properties -----*****/
-@import                          "shared/colors.rasi"
+@import                          "shared/wallpaper.rasi"
 @import                          "shared/fonts.rasi"
 
 /*****----- Main Window -----*****/
@@ -48,7 +48,7 @@ mainbox {
     border:                      0px solid;
     border-radius:               0px 0px 0px 0px;
     border-color:                @selected;
-    background-color:            transparent;
+    background-color:            @background;
     children:                    [ "inputbar", "listview" ];
 }
 
@@ -96,8 +96,8 @@ entry {
 /*****----- Listview -----*****/
 listview {
     enabled:                     true;
-    columns:                     10;
-    lines:                       1;
+    columns:                     2;
+    lines:                       2;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;
@@ -149,7 +149,7 @@ element-icon {
     padding:                     0px 0px 0px 0px;
     background-color:            transparent;
     text-color:                  inherit;
-    size:                        96px;
+    size:                        420px;
     cursor:                      inherit;
 }
 element-text {

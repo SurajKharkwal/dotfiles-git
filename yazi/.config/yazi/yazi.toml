@@ -10,7 +10,7 @@ sort_reverse 	 = false
 sort_dir_first = true
 sort_translit  = false
 linemode       = "none"
-show_hidden    = false
+show_hidden    = true
 show_symlink   = true
 scrolloff      = 5
 mouse_events   = [ "click", "scroll" ]
@@ -47,12 +47,14 @@ reveal = [
 	{ run = '''exiftool "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show EXIF", for = "unix" },
 ]
 extract = [
-	{ run = 'ya pub extract --list "$@"', desc = "Extract here", for = "unix" },
-	{ run = 'ya pub extract --list %*',   desc = "Extract here", for = "windows" },
+    { run = 'unzip "$1" -d "${1%.zip}"', desc = "Extract ZIP", for = "unix" },
+    { run = 'tar -xzf "$1" -C "${1%.tar.gz}"', desc = "Extract TAR.GZ", for = "unix" },
+    { run = 'tar -xf "$1" -C "${1%.tar}"', desc = "Extract TAR", for = "unix" },
+    { run = '7z x "$1" -o"${1%.*}"', desc = "Extract Archive", for = "unix" },
 ]
 play = [
-	{ run = 'mpv --force-window "$@"', orphan = true, for = "unix" },
-	{ run = 'mpv --force-window %*', orphan = true, for = "windows" },
+	{ run = 'vlc --one-instance "$@"', orphan = true, for = "unix" },
+	{ run = 'vlc --one-instance %*', orphan = true, for = "windows" },
 	{ run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" },
 ]
 

@@ -7,5 +7,5 @@ Comment=Open Neovim in Note Directory
 TryExec=kitty
 StartupNotify=true
 Exec=kitty -e sh -c 'cd ~/Notepad && nvim && :new'
-Icon=
+Icon=/home/flying_hawk/dotfiles-git/notepad/notepad.png
 Categories=Utility;

@@ -1,4 +1,4 @@
 #!/bin/bash
 
-ags --q
+ags -q
 ags --toggle-window "bar-0"

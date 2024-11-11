@@ -1,6 +1,9 @@
 set -g fish_greeting ''
 
 starship init fish | source
+fish_vi_key_bindings # Enable Vi mode
+set -g fish_escape_delay_ms 100 # Sets delay for the key sequence
+bind -M insert -m default jk cancel repaint-mode
 
 function y
     set tmp (mktemp -t "yazi-cwd.XXXXXX")
@@ -30,11 +33,11 @@ alias yy="yazi"
 # Check if the flag file exists
 if not test -f /tmp/neofetch_first_terminal.txt
     # Run Neofetch on the first terminal session after reboot or login
+    echo " "
     neofetch
     # Create a flag file to track that Neofetch has been shown
     touch /tmp/neofetch_first_terminal.txt
 end
-
 
 # bun
 set --export BUN_INSTALL "$HOME/.bun"

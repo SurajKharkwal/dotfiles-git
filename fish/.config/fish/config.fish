@@ -31,7 +31,7 @@ alias nv="nvim"
 alias lg="lazygit"
 alias yy="yazi"
 alias work="cd ~/dev-projects && ls"
-alias run_sql ="mysql -u root -p my-server < ~/sql/qr.sql"
+alias run="~/.config/hypr/Scripts/run-program.sh"
 # Check if the flag file exists
 if not test -f /tmp/neofetch_first_terminal.txt
     # Run Neofetch on the first terminal session after reboot or login

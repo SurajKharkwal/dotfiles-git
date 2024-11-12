@@ -30,6 +30,8 @@ end
 alias nv="nvim"
 alias lg="lazygit"
 alias yy="yazi"
+alias work="cd ~/dev-projects && ls"
+alias run_sql ="mysql -u root -p my-server < ~/sql/qr.sql"
 # Check if the flag file exists
 if not test -f /tmp/neofetch_first_terminal.txt
     # Run Neofetch on the first terminal session after reboot or login
@@ -38,6 +40,7 @@ if not test -f /tmp/neofetch_first_terminal.txt
     # Create a flag file to track that Neofetch has been shown
     touch /tmp/neofetch_first_terminal.txt
 end
+
 
 # bun
 set --export BUN_INSTALL "$HOME/.bun"

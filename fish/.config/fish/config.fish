@@ -1,6 +1,7 @@
 set -g fish_greeting ''
 
 starship init fish | source
+zoxide init fish | source
 fish_vi_key_bindings # Enable Vi mode
 set -g fish_escape_delay_ms 100 # Sets delay for the key sequence
 bind -M insert -m default jk cancel repaint-mode

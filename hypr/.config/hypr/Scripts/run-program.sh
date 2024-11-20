@@ -11,7 +11,7 @@ cpp() {
 
 # Function to run MySQL (or MariaDB) files
 mysql() {
-  mariadb -u root -p my-server <"$ABSOLUTE_PATH"
+  mariadb --skip_ssl -u root -p my-server <"$ABSOLUTE_PATH"
 }
 
 # Function to run Python files

@@ -1,5 +1,9 @@
 vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
 vim.g.mapleader = " "
+vim.opt.relativenumber = true
+vim.g.prettier_cli_options = {
+  timeout = 5000, -- Timeout in milliseconds (e.g., 5 seconds)
+}
 
 -- bootstrap lazy and all plugins
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"

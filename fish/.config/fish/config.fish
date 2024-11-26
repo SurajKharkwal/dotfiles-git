@@ -16,14 +16,20 @@ set -g fish_escape_delay_ms 100
 bind -M insert -m default jk cancel repaint-mode
 
 # Tmux auto-start
-if not set -q TMUX
+if status is-interactive
+    and not set -q TMUX
+    if not set -q DISPLAY
+        set -x DISPLAY :0
+    end
     if not tmux has-session -t workspace 2>/dev/null
         tmux new-session -d -s workspace
     else if tmux list-sessions | grep -q "^workspace.*(attached)"
+      #Do noting
     else
         tmux attach-session -t workspace
     end
 end
+
 
 #Yazi requirement
 function y
@@ -39,7 +45,6 @@ end
 alias nv="nvim"
 alias lg="lazygit"
 alias yy="yazi"
-alias work="cd ~/dev-projects && ls"
 alias run="~/.config/hypr/Scripts/run-program.sh"
 
 #Nefetch for First fish instance
@@ -51,4 +56,3 @@ end
 
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
-

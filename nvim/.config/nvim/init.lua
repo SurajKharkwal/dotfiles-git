@@ -1,4 +1,11 @@
 vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "sql",
+  callback = function()
+    vim.opt_local.commentstring = "-- %s"
+  end,
+})
+
 vim.g.mapleader = " "
 vim.opt.relativenumber = true
 vim.g.prettier_cli_options = {

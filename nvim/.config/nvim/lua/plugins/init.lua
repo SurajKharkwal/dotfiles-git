@@ -45,10 +45,12 @@ return {
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     -- if you install parsers with `nvim-treesitter`
     config = function()
-      require("treesj").setup {--[[ your config ]]
+      require("treesj").setup {
+        --[[ your config ]]
       }
     end,
   },
+
   {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
@@ -59,6 +61,7 @@ return {
       }
     end,
   },
+
   {
     "mattn/emmet-vim",
     lazy = true,
@@ -66,6 +69,7 @@ return {
       vim.g.user_emmet_leader_key = "T"
     end, -- Configure emmet for fast HTML/CSS workflow
   },
+
   {
     "L3MON4D3/LuaSnip",
     version = "v2.*",
@@ -73,8 +77,12 @@ return {
     -- install jsregexp (optional!).
     build = "make install_jsregexp",
   },
+
   {
     "prisma/vim-prisma",
     ft = "prisma",
   },
+
+  "nvzone/volt",
+  { "nvzone/timerly", cmd = "TimerlyToggle" },
 }

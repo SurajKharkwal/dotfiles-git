@@ -3,7 +3,7 @@ require("nvchad.configs.lspconfig").defaults()
 local lspconfig = require "lspconfig"
 
 -- LSP servers to configure
-local servers = { "html", "cssls", "ts_ls", "clangd", "tailwindcss", "prismals", "sqlls" }
+local servers = { "html", "cssls", "ts_ls", "clangd", "tailwindcss", "prismals", "sqlls", "pyright" }
 
 -- Enable snippet support
 local capabilities = vim.lsp.protocol.make_client_capabilities()

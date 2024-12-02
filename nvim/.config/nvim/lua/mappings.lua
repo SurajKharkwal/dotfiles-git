@@ -6,6 +6,17 @@ local nomap = vim.keymap.del
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
+local function format_sql()
+  local file = vim.fn.expand "%:p" -- %:p gives the full file path
+
+  local cmd = string.format("sql-formatter -o %s %s", file, file)
+  vim.fn.system(cmd)
+  vim.cmd "e"
+  print("Formatted: " .. file)
+end
+
+map("n", "<leader>fs", format_sql, { desc = "Format SQL File" })
+
 -- Disable mappings
 nomap("i", "<C-k>")
 nomap("n", "<C-k>")

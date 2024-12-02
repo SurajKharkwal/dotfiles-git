@@ -43,6 +43,7 @@ end
 
 #Alias
 alias nv="nvim"
+alias cl="clear"
 alias lg="lazygit"
 alias yy="yazi"
 alias run="~/.config/hypr/Scripts/run-program.sh"
@@ -53,6 +54,7 @@ if not test -f /tmp/neofetch_first_terminal.txt
     neofetch
     touch /tmp/neofetch_first_terminal.txt
 end
+
 
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH

@@ -10,9 +10,10 @@ local function format_sql()
   local file = vim.fn.expand "%:p" -- %:p gives the full file path
 
   local cmd = string.format("sql-formatter -o %s %s", file, file)
+  print(cmd)
   vim.fn.system(cmd)
-  vim.cmd "e"
-  print("Formatted: " .. file)
+  vim.cmd "e!"
+  -- print("Formatted: " .. file)
 end
 
 map("n", "<leader>fs", format_sql, { desc = "Format SQL File" })

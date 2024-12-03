@@ -1,11 +1,17 @@
+
+# Greeting
 set -g fish_greeting ''
 
-#Starship Theme
+# Exported Variables
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
+
+# Starship Prompt
 starship init fish | source
-#Zoxide
+# Zoxide Initialization
 zoxide init fish | source
 
-#Vi Mode
+# Vi Mode Configuration
 set fish_cursor_insert line
 set fish_cursor_default block
 set fish_cursor_replace_one underscore
@@ -15,23 +21,26 @@ set fish_cursor_visual block
 set -g fish_escape_delay_ms 100
 bind -M insert -m default jk cancel repaint-mode
 
-# Tmux auto-start
 if status is-interactive
-    and not set -q TMUX
-    if not set -q DISPLAY
-        set -x DISPLAY :0
-    end
+  if not set -q TMUX
     if not tmux has-session -t workspace 2>/dev/null
-        tmux new-session -d -s workspace
-    else if tmux list-sessions | grep -q "^workspace.*(attached)"
-      #Do noting
-    else
-        tmux attach-session -t workspace
+      tmux new-session -d -s workspace
     end
+    if not tmux list-sessions | grep -q "^workspace.*(attached)"
+      tmux attach-session -t workspace
+    end
+  end
 end
 
+# Aliases
+alias nv="nvim"
+alias cl="clear"
+alias lg="lazygit"
+alias yy="yazi"
+alias et="exit"
+alias run="~/.config/hypr/Scripts/run-program.sh"
 
-#Yazi requirement
+# Yazi Function
 function y
     set tmp (mktemp -t "yazi-cwd.XXXXXX")
     yazi $argv --cwd-file="$tmp"
@@ -41,20 +50,10 @@ function y
     rm -f -- "$tmp"
 end
 
-#Alias
-alias nv="nvim"
-alias cl="clear"
-alias lg="lazygit"
-alias yy="yazi"
-alias run="~/.config/hypr/Scripts/run-program.sh"
-
-#Nefetch for First fish instance
-if not test -f /tmp/neofetch_first_terminal.txt
-    echo " "
+# Fish Startup Logic (neofetch display only once per reboot)
+if status is-interactive
+  if not test -f /tmp/fish_statup
     neofetch
-    touch /tmp/neofetch_first_terminal.txt
+    touch /tmp/fish_statup
+  end
 end
-
-
-set --export BUN_INSTALL "$HOME/.bun"
-set --export PATH $BUN_INSTALL/bin $PATH
